@@ -155,6 +155,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+SITE_ID = 1
+
 OSCAR_THUMBNAILER = 'oscar.core.thumbnails.EasyThumbnails'
 
 AUTHENTICATION_BACKENDS = (
