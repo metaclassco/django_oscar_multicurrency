@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'oscar.apps.catalogue.reviews',
     'oscar.apps.payment',
     'oscar.apps.offer',
-    'oscar.apps.order',
     'oscar.apps.customer',
     'oscar.apps.search',
     'oscar.apps.voucher',
@@ -59,6 +58,7 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.shipping',
 
     'apps.basket.apps.BasketConfig',
+    'apps.order.apps.OrderConfig',
     'apps.partner.apps.PartnerConfig',
 
     # 3rd-party apps that oscar depends on
