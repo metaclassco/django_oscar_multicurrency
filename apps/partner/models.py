@@ -3,7 +3,7 @@ from django.db import models
 
 class Currency(models.Model):
     name = models.CharField(max_length=255)
-    code = models.CharField(max_length=3)
+    code = models.CharField(max_length=3, primary_key=True)
 
     class Meta:
         verbose_name_plural = 'Currencies'
@@ -11,5 +11,14 @@ class Currency(models.Model):
     def __str__(self):
         return self.name
 
+
+class ExchangeRate(models.Model):
+    base_currency = models.ForeignKey('Currency', related_name='base_currencies', on_delete=models.CASCADE)
+    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
+    value = models.DecimalField(max_digits=20, decimal_places=6)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s to %s' % (self.base_currency, self.currency)
 
 from oscar.apps.partner.models import *  # noqa isort:skip

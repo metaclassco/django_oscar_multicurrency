@@ -1,50 +1,44 @@
 [
 {
   "model": "partner.currency",
-  "pk": 1,
+  "pk": "CZK",
   "fields": {
-    "name": "United States dollar",
-    "code": "USD"
+    "name": "Czech koruna"
   }
 },
 {
   "model": "partner.currency",
-  "pk": 2,
+  "pk": "EUR",
   "fields": {
-    "name": "Romanian leu",
-    "code": "RON"
+    "name": "Euro"
   }
 },
 {
   "model": "partner.currency",
-  "pk": 3,
+  "pk": "HRK",
   "fields": {
-    "name": "Hungarian forint",
-    "code": "HUF"
+    "name": "Croatian kuna"
   }
 },
 {
   "model": "partner.currency",
-  "pk": 4,
+  "pk": "HUF",
   "fields": {
-    "name": "Czech koruna",
-    "code": "CZK"
+    "name": "Hungarian forint"
   }
 },
 {
   "model": "partner.currency",
-  "pk": 5,
+  "pk": "RON",
   "fields": {
-    "name": "Croatian kuna",
-    "code": "HRK"
+    "name": "Romanian leu"
   }
 },
 {
   "model": "partner.currency",
-  "pk": 6,
+  "pk": "USD",
   "fields": {
-    "name": "Euro",
-    "code": "EUR"
+    "name": "United States dollar"
   }
 }
 ]
