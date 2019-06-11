@@ -1,0 +1,50 @@
+[
+{
+  "model": "partner.currency",
+  "pk": 1,
+  "fields": {
+    "name": "United States dollar",
+    "code": "USD"
+  }
+},
+{
+  "model": "partner.currency",
+  "pk": 2,
+  "fields": {
+    "name": "Romanian leu",
+    "code": "RON"
+  }
+},
+{
+  "model": "partner.currency",
+  "pk": 3,
+  "fields": {
+    "name": "Hungarian forint",
+    "code": "HUF"
+  }
+},
+{
+  "model": "partner.currency",
+  "pk": 4,
+  "fields": {
+    "name": "Czech koruna",
+    "code": "CZK"
+  }
+},
+{
+  "model": "partner.currency",
+  "pk": 5,
+  "fields": {
+    "name": "Croatian kuna",
+    "code": "HRK"
+  }
+},
+{
+  "model": "partner.currency",
+  "pk": 6,
+  "fields": {
+    "name": "Euro",
+    "code": "EUR"
+  }
+}
+]
