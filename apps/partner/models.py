@@ -1,5 +1,7 @@
 from django.db import models
 
+from oscar.apps.partner.abstract_models import AbstractStockRecord
+
 
 class Currency(models.Model):
     name = models.CharField(max_length=255)
@@ -20,5 +22,10 @@ class ExchangeRate(models.Model):
 
     def __str__(self):
         return '%s to %s' % (self.base_currency, self.currency)
+
+
+class StockRecord(AbstractStockRecord):
+    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
+
 
 from oscar.apps.partner.models import *  # noqa isort:skip
