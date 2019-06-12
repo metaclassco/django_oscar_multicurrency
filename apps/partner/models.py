@@ -11,7 +11,7 @@ class Currency(models.Model):
         verbose_name_plural = 'Currencies'
 
     def __str__(self):
-        return self.name
+        return self.code
 
 
 class ExchangeRate(models.Model):
@@ -25,7 +25,7 @@ class ExchangeRate(models.Model):
 
 
 class StockRecord(AbstractStockRecord):
-    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
+    price_currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
 
 
 from oscar.apps.partner.models import *  # noqa isort:skip
