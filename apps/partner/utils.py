@@ -1,8 +1,10 @@
+from decimal import Decimal as D, ROUND_HALF_UP
+
 import requests
 
 from django.core.cache import cache
 
-from .models import Currency
+from .models import Currency, ExchangeRate
 
 
 EXCHANGERATES_API_URL = 'https://api.exchangeratesapi.io/latest?base=%s&symbols=%s'
@@ -22,3 +24,8 @@ def get_default_currency():
         default_currency = Currency.objects.first()
         cache.set(DEFAULT_CURRENCY_CACHE_KEY, default_currency)
     return default_currency
+
+
+def convert_currency(from_currency, to_currency, value):
+    rate = ExchangeRate.objects.get(base_currency=from_currency, currency=to_currency)
+    return D(rate.value * value).quantize(D('0.01'), ROUND_HALF_UP)
