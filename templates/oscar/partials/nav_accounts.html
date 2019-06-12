@@ -1,0 +1,13 @@
+{% extends 'oscar/partials/nav_accounts.html' %}
+
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block nav_account_languages %}
+    {{ block.super }}
+    <form class="navbar-left navbar-form " action="{% url 'basket:basket-currency' %}" method="post">
+      {% csrf_token %}
+      {% render_field currency_form.currency class+="form-control" %}
+      <button class="btn btn-default" type="submit" data-loading-text="{% trans 'Submitting...' %}">{% trans "Go" %}</button>
+    </form>
+{% endblock %}
