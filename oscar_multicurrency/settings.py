@@ -101,6 +101,9 @@ TEMPLATES = [
                 'oscar.apps.customer.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
             ],
+            'libraries': {
+                'currency_filters': 'templatetags.currency_filters',
+            },
         },
     },
 ]
