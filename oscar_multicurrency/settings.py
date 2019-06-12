@@ -100,6 +100,7 @@ TEMPLATES = [
                 'oscar.apps.checkout.context_processors.checkout',
                 'oscar.apps.customer.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
+                'apps.basket.context_processors.currency_form',
             ],
             'libraries': {
                 'currency_filters': 'templatetags.currency_filters',
