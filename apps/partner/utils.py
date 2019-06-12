@@ -19,7 +19,6 @@ def fetch_exchange_rates(base_currency, currencies):
 def get_default_currency():
     default_currency = cache.get(DEFAULT_CURRENCY_CACHE_KEY)
     if not default_currency:
-        currency = Currency.objects.first()
-        default_currency = currency.code
+        default_currency = Currency.objects.first()
         cache.set(DEFAULT_CURRENCY_CACHE_KEY, default_currency)
     return default_currency
