@@ -20,7 +20,10 @@ class Basket(AbstractBasket):
         self.save()
 
         for line in self.all_lines():
+            stock_info = self.get_stock_info(line.product, options=None)
             line.price_currency = currency
+            line.price_excl_tax = stock_info.price.excl_tax
+            line.price_incl_tax = stock_info.price.incl_tax
             line.save()
 
 
