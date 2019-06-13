@@ -167,6 +167,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SITE_ID = 1
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 OSCAR_THUMBNAILER = 'oscar.core.thumbnails.EasyThumbnails'
 
 AUTHENTICATION_BACKENDS = (
