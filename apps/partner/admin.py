@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Currency, ExchangeRate
+from .models import ExchangeRate
 
 
 class ExchangeRateAdmin(admin.ModelAdmin):
@@ -7,7 +7,6 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ExchangeRate, ExchangeRateAdmin)
-admin.site.register(Currency)
 
 
 from oscar.apps.partner.admin import *  # noqa
