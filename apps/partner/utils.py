@@ -19,13 +19,17 @@ def fetch_exchange_rates(base_currency, currencies):
 
 
 def get_default_currency():
+    return Currency.objects.first()
+
+
+def get_default_currency_code():
     default_currency = cache.get(DEFAULT_CURRENCY_CACHE_KEY)
     if not default_currency:
-        default_currency = Currency.objects.first()
+        default_currency = get_default_currency()
         cache.set(DEFAULT_CURRENCY_CACHE_KEY, default_currency)
     return default_currency
 
 
 def convert_currency(from_currency, to_currency, value):
-    rate = ExchangeRate.objects.get(base_currency=from_currency, currency=to_currency)
+    rate = ExchangeRate.objects.filter(base_currency=from_currency, currency=to_currency).last()
     return D(rate.value * value).quantize(D('0.01'), ROUND_HALF_UP)
