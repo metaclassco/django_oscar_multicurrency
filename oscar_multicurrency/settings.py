@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'oscar.apps.catalogue.reviews',
     'oscar.apps.payment',
     'oscar.apps.offer',
+    'oscar.apps.order',
     'oscar.apps.customer',
     'oscar.apps.search',
     'oscar.apps.voucher',
@@ -58,7 +59,6 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.shipping',
 
     'apps.basket.apps.BasketConfig',
-    'apps.order.apps.OrderConfig',
     'apps.partner.apps.PartnerConfig',
 
     # 3rd-party apps that oscar depends on
@@ -102,9 +102,6 @@ TEMPLATES = [
                 'oscar.core.context_processors.metadata',
                 'apps.basket.context_processors.currency_form',
             ],
-            'libraries': {
-                'currency_filters': 'templatetags.currency_filters',
-            },
         },
     },
 ]
@@ -170,6 +167,10 @@ SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 OSCAR_THUMBNAILER = 'oscar.core.thumbnails.EasyThumbnails'
+
+OSCAR_DEFAULT_CURRENCY = 'EUR'
+
+OSCAR_CURRENCIES = ('CZK', 'EUR', 'HRK', 'HUF', 'RON', 'USD')
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
