@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'oscar.apps.analytics',
     'oscar.apps.checkout',
     'oscar.apps.address',
-    'oscar.apps.shipping',
     'oscar.apps.catalogue',
     'oscar.apps.catalogue.reviews',
     'oscar.apps.payment',
@@ -58,6 +57,7 @@ INSTALLED_APPS = [
 
     'apps.basket.apps.BasketConfig',
     'apps.partner.apps.PartnerConfig',
+    'apps.shipping.apps.ShippingConfig'
     'apps.dashboard.apps.DashboardConfig',
     'apps.dashboard.catalogue.apps.CatalogueDashboardConfig',
 
