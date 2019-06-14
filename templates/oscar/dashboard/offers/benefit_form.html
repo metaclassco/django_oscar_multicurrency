@@ -1,0 +1,27 @@
+{% extends 'oscar/dashboard/offers/benefit_form.html' %}
+
+{% load i18n %}
+
+{% block form_fields %}
+    <span class="error-block">{{ form.non_field_errors }}</span>
+
+    {% if form.fields.custom_benefit.choices %}
+        <h4>{% trans "Build a new incentive" %}</h4>
+    {% endif %}
+    {% include "oscar/dashboard/partials/form_field.html" with field=form.range %}
+    <p>
+        {% url 'dashboard:range-list' as range_list_url %}
+        {% blocktrans %}
+        Ranges can be created and edited from within the <a href="{{ range_list_url }}" target="_blank">range dashboard</a>.
+        {% endblocktrans %}
+    </p>
+    {% include "oscar/dashboard/partials/form_field.html" with field=form.type %}
+    {% include "oscar/dashboard/partials/form_field.html" with field=form.value %}
+    {% include "oscar/dashboard/partials/form_field.html" with field=form.max_affected_items %}
+    {% include "oscar/dashboard/partials/form_field.html" with field=form.currency %}
+
+    {% if form.fields.custom_benefit.choices %}
+        <h4>{% trans "...or choose a pre-defined one" %}</h4>
+        {% include "oscar/dashboard/partials/form_field.html" with field=form.custom_benefit %}
+    {% endif %}
+{% endblock %}
