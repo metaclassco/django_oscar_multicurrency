@@ -15,7 +15,7 @@ class Default(CoreDefault):
     def convert_currency(self, stockrecord, prices):
         basket_currency = self.request.basket.currency or settings.OSCAR_DEFAULT_CURRENCY
         price_excl_tax = convert_currency(stockrecord.price_currency, basket_currency, prices.excl_tax)
-        return FixedPrice(excl_tax=price_excl_tax, currency=self.request.basket.currency, tax=D(0))
+        return FixedPrice(excl_tax=price_excl_tax, currency=basket_currency, tax=D(0))
 
     def pricing_policy(self, product, stockrecord):
         prices = super().pricing_policy(product, stockrecord)
