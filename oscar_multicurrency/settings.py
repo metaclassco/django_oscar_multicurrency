@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.reports',
     'oscar.apps.dashboard.users',
     'oscar.apps.dashboard.orders',
-    'oscar.apps.dashboard.offers',
     'oscar.apps.dashboard.partners',
     'oscar.apps.dashboard.pages',
     'oscar.apps.dashboard.ranges',
@@ -60,6 +59,7 @@ INSTALLED_APPS = [
     'apps.shipping.apps.ShippingConfig',
     'apps.dashboard.apps.DashboardConfig',
     'apps.dashboard.catalogue.apps.CatalogueDashboardConfig',
+    'apps.dashboard.offers.apps.OffersDashboardConfig',
 
     # 3rd-party apps that oscar depends on
     'widget_tweaks',
