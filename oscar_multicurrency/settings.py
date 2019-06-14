@@ -54,8 +54,8 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.communications',
     'oscar.apps.dashboard.shipping',
 
-    'apps.basket.apps.BasketConfig',
     'apps.offer.apps.OfferConfig',
+    'apps.basket.apps.BasketConfig',
     'apps.partner.apps.PartnerConfig',
     'apps.shipping.apps.ShippingConfig',
     'apps.dashboard.apps.DashboardConfig',
