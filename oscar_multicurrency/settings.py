@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
 
     'oscar',
-    'oscar.apps.analytics',
     'oscar.apps.checkout',
     'oscar.apps.address',
     'oscar.apps.catalogue',
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.communications',
     'oscar.apps.dashboard.shipping',
 
+    'apps.analytics.apps.AnalyticsConfig',
     'apps.offer.apps.OfferConfig',
     'apps.basket.apps.BasketConfig',
     'apps.partner.apps.PartnerConfig',
