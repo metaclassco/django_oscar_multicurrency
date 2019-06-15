@@ -34,7 +34,16 @@ class Benefit(CurrencyMixin, AbstractBenefit):
 
 
 class Condition(CurrencyMixin, AbstractCondition):
-    pass
+    @property
+    def proxy_map(self):
+        return {
+            self.COUNT: get_class(
+                'offer.conditions', 'CountCondition'),
+            self.VALUE: get_class(
+                'offer.conditions', 'CurrencyAwareValueCondition'),
+            self.COVERAGE: get_class(
+                'offer.conditions', 'CoverageCondition'),
+        }
 
 
 from oscar.apps.offer.models import *  # noqa isort:skip
