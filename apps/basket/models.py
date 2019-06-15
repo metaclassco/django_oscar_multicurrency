@@ -1,6 +1,6 @@
 from django.db import models
 
-from oscar.apps.basket.abstract_models import AbstractBasket
+from oscar.apps.basket.abstract_models import AbstractBasket, AbstractLine
 from oscar.core.utils import get_default_currency
 
 
@@ -25,6 +25,14 @@ class Basket(AbstractBasket):
             line.price_excl_tax = stock_info.price.excl_tax
             line.price_incl_tax = stock_info.price.incl_tax
             line.save()
+
+
+class Line(AbstractLine):
+    @property
+    def purchase_info(self):
+        if not hasattr(self, '_info'):
+            self._info = self.basket.strategy.fetch_for_line(self, self.stockrecord, self.basket.currency)
+        return self._info
 
 
 from oscar.apps.basket.models import *  # noqa isort:skip
