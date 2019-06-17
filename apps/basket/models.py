@@ -26,6 +26,8 @@ class Basket(AbstractBasket):
             line.price_incl_tax = stock_info.price.incl_tax
             line.save()
 
+        self.reset_offer_applications()
+
 
 class Line(AbstractLine):
     @property
