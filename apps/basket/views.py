@@ -12,6 +12,7 @@ class BasketCurrencyUpdateView(FormView):
 
     def form_valid(self, form):
         currency = form.cleaned_data['currency']
+        self.request.session['currency'] = currency
         self.request.basket.change_currency(currency)
         return HttpResponseRedirect(self.get_success_url())
 
