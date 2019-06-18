@@ -1,15 +1,5 @@
-from django.db import models
-
 from oscar.apps.offer.abstract_models import AbstractBenefit, AbstractCondition
-from oscar.core.loading import get_class
-from oscar.core.utils import get_default_currency
-
-
-class CurrencyMixin(models.Model):
-    currency = models.CharField(max_length=3, default=get_default_currency)
-
-    class Meta:
-        abstract = True
+from core.mixins import CurrencyMixin
 
 
 class Benefit(CurrencyMixin, AbstractBenefit):
