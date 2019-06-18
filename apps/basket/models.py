@@ -5,6 +5,11 @@ from oscar.core.utils import get_default_currency
 
 
 class Basket(AbstractBasket):
+    # Since original Oscar basket model already had `currency` property, we
+    # couldn't just replace it with the model field with the same name.
+    # On the contrary, we overridden a property and implemented property
+    # setter, which stores value in the `_currency` field in order to
+    # avoid collision.
     _currency = models.CharField(max_length=3, default=get_default_currency)
 
     @property

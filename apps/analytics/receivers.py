@@ -20,6 +20,11 @@ order_placed.disconnect(receive_order_placed)
 
 def _record_user_order(user, order):
     try:
+        # Since all orders are stored in user-selected currency, for
+        # consistency we need to record user analytics in default currency.
+        # User might select different currency for different orders,
+        # also in order to aggregate analytics we'll need to have data in
+        # the same currency.
         record = UserRecord.objects.filter(user=user)
         if order.currency == settings.OSCAR_DEFAULT_CURRENCY:
             total_spent = order.total_incl_tax

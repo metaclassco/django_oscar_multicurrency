@@ -21,6 +21,10 @@ class BasketMiddleware(CoreBasketMiddleware):
         if hasattr(request, 'user') and request.user.is_authenticated:
             try:
                 basket, created = manager.get_or_create(owner=request.user)
+                # We need to set user-selected currency, stored in the session in
+                # order to avoid basket created in default currency, so that
+                # user will have to change it again. Thus, we just want to make
+                # selected currency persistent for the all user baskets too.
                 if created:
                     basket.currency = request.session.get('currency', settings.OSCAR_DEFAULT_CURRENCY)
                     basket.save()

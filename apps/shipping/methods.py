@@ -22,6 +22,8 @@ class FixedPrice(OriginalFixedPrice):
         if self.currency == basket.currency:
             return super().calculate(basket)
 
+        # If basket currency differs from shipping method's currency,
+        # we convert shipping costs to user-selected currency.
         charge_excl_tax = convert_currency(self.currency, basket.currency, self.charge_excl_tax)
         charge_incl_tax = convert_currency(self.currency, basket.currency, self.charge_incl_tax)
         return prices.Price(

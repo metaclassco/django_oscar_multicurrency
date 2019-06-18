@@ -12,6 +12,11 @@ FixedPrice = get_class('partner.prices', 'FixedPrice')
 
 
 class Default(CoreDefault):
+    """
+    Partner strategy, that converts prices from stockrecord currency
+    to user-selected currency.
+    """
+
     def get_currency(self):
         currency = self.request.session.get('currency', None)
         currency = currency or settings.OSCAR_DEFAULT_CURRENCY
