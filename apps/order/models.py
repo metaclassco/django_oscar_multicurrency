@@ -21,6 +21,10 @@ class Order(AbstractOrder):
         return self.convert_to_default_currency('total_incl_tax')
 
     @property
+    def total_excl_tax_in_default_currency(self):
+        return self.convert_to_default_currency('total_excl_tax')
+
+    @property
     def shipping_incl_tax_in_default_currency(self):
         return self.convert_to_default_currency('shipping_incl_tax')
 
