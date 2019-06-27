@@ -20,11 +20,11 @@ def fetch_exchange_rates(base_currency, currencies):
 
 def convert_currency(from_currency, to_currency, convertible_value):
     cache_key = EXCHANGE_RATE_CACHE_KEY % (from_currency, to_currency)
-    value = cache.get(cache_key, None)
-    if value:
-        return value
+    rate_value = cache.get(cache_key, None)
+    if not rate_value:
+        rate = ExchangeRate.objects.filter(base_currency=from_currency, currency=to_currency).last()
+        rate_value = rate.value
+        cache.set(cache_key, rate_value)
 
-    rate = ExchangeRate.objects.filter(base_currency=from_currency, currency=to_currency).last()
-    value = D(rate.value * convertible_value).quantize(D('0.01'), ROUND_HALF_UP)
-    cache.set(cache_key, rate.value)
+    value = D(rate_value * convertible_value).quantize(D('0.01'), ROUND_HALF_UP)
     return value
