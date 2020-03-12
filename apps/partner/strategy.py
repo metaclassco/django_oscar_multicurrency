@@ -37,9 +37,10 @@ class Default(CoreDefault):
             return self.convert_currency(stockrecord, prices)
         return prices
 
-    def parent_pricing_policy(self, product, stockrecord):
-        prices = super().parent_pricing_policy(product, stockrecord)
-        if stockrecord:
+    def parent_pricing_policy(self, product, children_stock):
+        prices = super().parent_pricing_policy(product, children_stock)
+        if children_stock:
+            stockrecord = children_stock[0][1]  # take first record
             currency = self.get_currency()
             if currency == stockrecord.price_currency:
                 return prices
